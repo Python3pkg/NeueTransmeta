@@ -26,15 +26,15 @@ VALUE_DEFAULT = 'WITHOUT VALUE'
 
 
 def ask_for_confirmation(sql_sentences, model_full_name, assume_yes):
-    print ('\nSQL to synchronize "%s" schema:' % model_full_name)
+    print(('\nSQL to synchronize "%s" schema:' % model_full_name))
     for sentence in sql_sentences:
-        print ('   %s' % sentence)
+        print(('   %s' % sentence))
     if assume_yes:
         print ('\nAre you sure that you want to execute the previous SQL: (y/n) [n]: YES')
         return True
     while True:
         prompt = '\nAre you sure that you want to execute the previous SQL: (y/n) [n]: '
-        answer = raw_input(prompt).strip()
+        answer = input(prompt).strip()
         if answer == '':
             return False
         elif answer not in ('y', 'n', 'yes', 'no'):
@@ -46,8 +46,8 @@ def ask_for_confirmation(sql_sentences, model_full_name, assume_yes):
 
 
 def print_db_change_langs(db_change_langs, field_name, model_name):
-    print ('\nThis languages can change in "%s" field from "%s" model: %s' % \
-        (field_name, model_name, ", ".join(db_change_langs)))
+    print(('\nThis languages can change in "%s" field from "%s" model: %s' % \
+        (field_name, model_name, ", ".join(db_change_langs))))
 
 
 class Command(BaseCommand):
